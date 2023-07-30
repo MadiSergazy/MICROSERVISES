@@ -1,3 +1,3 @@
-module github.com/nicholasjackson/building-microservices-youtube/product-api
+module mado
 
-go 1.13
+go 1.20
