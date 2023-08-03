@@ -6,8 +6,9 @@ import (
 	"net/http"
 	"strconv"
 
+	data "mado/data"
+
 	"github.com/gorilla/mux"
-	"github.com/nicholasjackson/building-microservices-youtube/product-api/data"
 )
 
 // KeyProduct is a key used for the Product object in the context

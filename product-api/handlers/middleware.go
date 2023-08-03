@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/nicholasjackson/building-microservices-youtube/product-api/data"
+	data "mado/data"
 )
 
 // MiddlewareValidateProduct validates the product in the request and calls next if ok
