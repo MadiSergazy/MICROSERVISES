@@ -1,24 +1,11 @@
 package handlers
 
 import (
-	"compress/gzip"
 	"context"
 	"net/http"
 
 	"github.com/nicholasjackson/building-microservices-youtube/product-api/data"
 )
-
-func GZipResponseMiddleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-
-		next.ServeHTTP(w, r)
-	})
-}
-
-type WrappedResponseWriter struct {
-	rw http.ResponseWriter
-	gw *gzip.Writer
-}
 
 // MiddlewareValidateProduct validates the product in the request and calls next if ok
 func (p *Products) MiddlewareValidateProduct(next http.Handler) http.Handler {
