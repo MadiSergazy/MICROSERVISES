@@ -1,25 +1,19 @@
 # Product API
 
-## Generating Swagger Documentation
+Go based Product API built using the Gorilla Toolkit [https://www.gorillatoolkit.org/](https://www.gorillatoolkit.org/)
 
-Swagger documentation is generated from the code annotations inside the source using go-swagger.
 
-Go swagger can be installed with the following command:
+## Documentation
 
-```
-go get -u github.com/go-swagger/go-swagger/cmd/swagger
-```
+OpenAPI documentation can be found in the [swagger.yaml](./swagger.yaml) file
 
-You can generate the documentation using the command:
+## Running
 
-```
-swagger generate spec -o ./swagger.yaml --scan-models
-```
-
-After running the application:
+The applicaiton can be run with `go run`
 
 ```
-go run main.go
-```
+➜ go run main.go
+products-api 2020/02/16 16:15:11 Starting server on port 9090
 
-Swagger documentation can be viewed using the ReDoc UI in your browser at [http://localhost:9090/docs](http://localhost:9090/docs).
+curl localhost:9090/products
+```

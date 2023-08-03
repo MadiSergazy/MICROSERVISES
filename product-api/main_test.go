@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"testing"
 
-	"mado/sdk/client"
-	"mado/sdk/client/products"
+	"github.com/nicholasjackson/building-microservices-youtube/product-api/sdk/client"
+	"github.com/nicholasjackson/building-microservices-youtube/product-api/sdk/client/products"
 )
 
-func TestOutClient(t *testing.T) {
+func TestOurClient(t *testing.T) {
 	cfg := client.DefaultTransportConfig().WithHost("localhost:9090")
 	c := client.NewHTTPClientWithConfig(nil, cfg)
 
@@ -18,6 +18,7 @@ func TestOutClient(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	fmt.Println(prod.GetPayload()[0])
 
+	fmt.Printf("%#v", prod.GetPayload()[0])
+	t.Fail()
 }

@@ -6,14 +6,11 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
-
-	"github.com/go-openapi/strfmt"
+	strfmt "github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
 
-// ValidationError ValidationError is a collection of validation error messages
-//
+// ValidationError ValidationError ValidationError ValidationError is a collection of validation error messages
 // swagger:model ValidationError
 type ValidationError struct {
 
@@ -23,11 +20,6 @@ type ValidationError struct {
 
 // Validate validates this validation error
 func (m *ValidationError) Validate(formats strfmt.Registry) error {
-	return nil
-}
-
-// ContextValidate validates this validation error based on context it is used
-func (m *ValidationError) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

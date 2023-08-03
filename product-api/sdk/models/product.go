@@ -6,16 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
-
 	"github.com/go-openapi/errors"
-	"github.com/go-openapi/strfmt"
+	strfmt "github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
-// Product Product defines the structure for an API product
-//
+// Product Product Product Product defines the structure for an API product
 // swagger:model Product
 type Product struct {
 
@@ -74,11 +71,12 @@ func (m *Product) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Product) validateDescription(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.Description) { // not required
 		return nil
 	}
 
-	if err := validate.MaxLength("description", "body", m.Description, 10000); err != nil {
+	if err := validate.MaxLength("description", "body", string(m.Description), 10000); err != nil {
 		return err
 	}
 
@@ -86,11 +84,12 @@ func (m *Product) validateDescription(formats strfmt.Registry) error {
 }
 
 func (m *Product) validateID(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.ID) { // not required
 		return nil
 	}
 
-	if err := validate.MinimumInt("id", "body", m.ID, 1, false); err != nil {
+	if err := validate.MinimumInt("id", "body", int64(m.ID), 1, false); err != nil {
 		return err
 	}
 
@@ -103,7 +102,7 @@ func (m *Product) validateName(formats strfmt.Registry) error {
 		return err
 	}
 
-	if err := validate.MaxLength("name", "body", *m.Name, 255); err != nil {
+	if err := validate.MaxLength("name", "body", string(*m.Name), 255); err != nil {
 		return err
 	}
 
@@ -129,15 +128,10 @@ func (m *Product) validateSKU(formats strfmt.Registry) error {
 		return err
 	}
 
-	if err := validate.Pattern("sku", "body", *m.SKU, `[a-z]+-[a-z]+-[a-z]+`); err != nil {
+	if err := validate.Pattern("sku", "body", string(*m.SKU), `[a-z]+-[a-z]+-[a-z]+`); err != nil {
 		return err
 	}
 
-	return nil
-}
-
-// ContextValidate validates this product based on context it is used
-func (m *Product) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

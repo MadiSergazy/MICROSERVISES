@@ -3,7 +3,7 @@ package handlers
 import (
 	"net/http"
 
-	data "mado/data"
+	"github.com/nicholasjackson/building-microservices-youtube/product-api/data"
 )
 
 // swagger:route GET /products products listProducts
@@ -14,7 +14,6 @@ import (
 // ListAll handles GET requests and returns all current products
 func (p *Products) ListAll(rw http.ResponseWriter, r *http.Request) {
 	p.l.Println("[DEBUG] get all records")
-
 	rw.Header().Add("Content-Type", "application/json")
 
 	prods := data.GetProducts()
@@ -34,6 +33,8 @@ func (p *Products) ListAll(rw http.ResponseWriter, r *http.Request) {
 
 // ListSingle handles GET requests
 func (p *Products) ListSingle(rw http.ResponseWriter, r *http.Request) {
+	rw.Header().Add("Content-Type", "application/json")
+
 	id := getProductID(r)
 
 	p.l.Println("[DEBUG] get record id", id)

@@ -10,9 +10,10 @@ import (
 	"io"
 
 	"github.com/go-openapi/runtime"
-	"github.com/go-openapi/strfmt"
 
-	"mado/sdk/models"
+	strfmt "github.com/go-openapi/strfmt"
+
+	"github.com/nicholasjackson/building-microservices-youtube/product-api/sdk/models"
 )
 
 // DeleteProductReader is a Reader for the DeleteProduct structure.
@@ -41,8 +42,9 @@ func (o *DeleteProductReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
+
 	default:
-		return nil, runtime.NewAPIError("[DELETE /products/{id}] deleteProduct", response, response.Code())
+		return nil, runtime.NewAPIError("unknown error", response, response.Code())
 	}
 }
 
@@ -51,49 +53,14 @@ func NewDeleteProductCreated() *DeleteProductCreated {
 	return &DeleteProductCreated{}
 }
 
-/*
-DeleteProductCreated describes a response with status code 201, with default header values.
+/*DeleteProductCreated handles this case with default header values.
 
 No content is returned by this API endpoint
 */
 type DeleteProductCreated struct {
 }
 
-// IsSuccess returns true when this delete product created response has a 2xx status code
-func (o *DeleteProductCreated) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this delete product created response has a 3xx status code
-func (o *DeleteProductCreated) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete product created response has a 4xx status code
-func (o *DeleteProductCreated) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this delete product created response has a 5xx status code
-func (o *DeleteProductCreated) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete product created response a status code equal to that given
-func (o *DeleteProductCreated) IsCode(code int) bool {
-	return code == 201
-}
-
-// Code gets the status code for the delete product created response
-func (o *DeleteProductCreated) Code() int {
-	return 201
-}
-
 func (o *DeleteProductCreated) Error() string {
-	return fmt.Sprintf("[DELETE /products/{id}][%d] deleteProductCreated ", 201)
-}
-
-func (o *DeleteProductCreated) String() string {
 	return fmt.Sprintf("[DELETE /products/{id}][%d] deleteProductCreated ", 201)
 }
 
@@ -107,8 +74,7 @@ func NewDeleteProductNotFound() *DeleteProductNotFound {
 	return &DeleteProductNotFound{}
 }
 
-/*
-DeleteProductNotFound describes a response with status code 404, with default header values.
+/*DeleteProductNotFound handles this case with default header values.
 
 Generic error message returned as a string
 */
@@ -116,41 +82,7 @@ type DeleteProductNotFound struct {
 	Payload *models.GenericError
 }
 
-// IsSuccess returns true when this delete product not found response has a 2xx status code
-func (o *DeleteProductNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this delete product not found response has a 3xx status code
-func (o *DeleteProductNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete product not found response has a 4xx status code
-func (o *DeleteProductNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this delete product not found response has a 5xx status code
-func (o *DeleteProductNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete product not found response a status code equal to that given
-func (o *DeleteProductNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the delete product not found response
-func (o *DeleteProductNotFound) Code() int {
-	return 404
-}
-
 func (o *DeleteProductNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /products/{id}][%d] deleteProductNotFound  %+v", 404, o.Payload)
-}
-
-func (o *DeleteProductNotFound) String() string {
 	return fmt.Sprintf("[DELETE /products/{id}][%d] deleteProductNotFound  %+v", 404, o.Payload)
 }
 
@@ -175,8 +107,7 @@ func NewDeleteProductNotImplemented() *DeleteProductNotImplemented {
 	return &DeleteProductNotImplemented{}
 }
 
-/*
-DeleteProductNotImplemented describes a response with status code 501, with default header values.
+/*DeleteProductNotImplemented handles this case with default header values.
 
 Generic error message returned as a string
 */
@@ -184,41 +115,7 @@ type DeleteProductNotImplemented struct {
 	Payload *models.GenericError
 }
 
-// IsSuccess returns true when this delete product not implemented response has a 2xx status code
-func (o *DeleteProductNotImplemented) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this delete product not implemented response has a 3xx status code
-func (o *DeleteProductNotImplemented) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete product not implemented response has a 4xx status code
-func (o *DeleteProductNotImplemented) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this delete product not implemented response has a 5xx status code
-func (o *DeleteProductNotImplemented) IsServerError() bool {
-	return true
-}
-
-// IsCode returns true when this delete product not implemented response a status code equal to that given
-func (o *DeleteProductNotImplemented) IsCode(code int) bool {
-	return code == 501
-}
-
-// Code gets the status code for the delete product not implemented response
-func (o *DeleteProductNotImplemented) Code() int {
-	return 501
-}
-
 func (o *DeleteProductNotImplemented) Error() string {
-	return fmt.Sprintf("[DELETE /products/{id}][%d] deleteProductNotImplemented  %+v", 501, o.Payload)
-}
-
-func (o *DeleteProductNotImplemented) String() string {
 	return fmt.Sprintf("[DELETE /products/{id}][%d] deleteProductNotImplemented  %+v", 501, o.Payload)
 }
 

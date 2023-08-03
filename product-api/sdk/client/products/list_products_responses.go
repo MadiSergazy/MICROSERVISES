@@ -10,9 +10,10 @@ import (
 	"io"
 
 	"github.com/go-openapi/runtime"
-	"github.com/go-openapi/strfmt"
 
-	"mado/sdk/models"
+	strfmt "github.com/go-openapi/strfmt"
+
+	"github.com/nicholasjackson/building-microservices-youtube/product-api/sdk/models"
 )
 
 // ListProductsReader is a Reader for the ListProducts structure.
@@ -29,8 +30,9 @@ func (o *ListProductsReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return result, nil
+
 	default:
-		return nil, runtime.NewAPIError("[GET /products] listProducts", response, response.Code())
+		return nil, runtime.NewAPIError("unknown error", response, response.Code())
 	}
 }
 
@@ -39,8 +41,7 @@ func NewListProductsOK() *ListProductsOK {
 	return &ListProductsOK{}
 }
 
-/*
-ListProductsOK describes a response with status code 200, with default header values.
+/*ListProductsOK handles this case with default header values.
 
 A list of products
 */
@@ -48,41 +49,7 @@ type ListProductsOK struct {
 	Payload []*models.Product
 }
 
-// IsSuccess returns true when this list products o k response has a 2xx status code
-func (o *ListProductsOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list products o k response has a 3xx status code
-func (o *ListProductsOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list products o k response has a 4xx status code
-func (o *ListProductsOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list products o k response has a 5xx status code
-func (o *ListProductsOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list products o k response a status code equal to that given
-func (o *ListProductsOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the list products o k response
-func (o *ListProductsOK) Code() int {
-	return 200
-}
-
 func (o *ListProductsOK) Error() string {
-	return fmt.Sprintf("[GET /products][%d] listProductsOK  %+v", 200, o.Payload)
-}
-
-func (o *ListProductsOK) String() string {
 	return fmt.Sprintf("[GET /products][%d] listProductsOK  %+v", 200, o.Payload)
 }
 

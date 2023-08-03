@@ -10,9 +10,10 @@ import (
 	"io"
 
 	"github.com/go-openapi/runtime"
-	"github.com/go-openapi/strfmt"
 
-	"mado/sdk/models"
+	strfmt "github.com/go-openapi/strfmt"
+
+	"github.com/nicholasjackson/building-microservices-youtube/product-api/sdk/models"
 )
 
 // UpdateProductReader is a Reader for the UpdateProduct structure.
@@ -41,8 +42,9 @@ func (o *UpdateProductReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
+
 	default:
-		return nil, runtime.NewAPIError("[PUT /products] updateProduct", response, response.Code())
+		return nil, runtime.NewAPIError("unknown error", response, response.Code())
 	}
 }
 
@@ -51,49 +53,14 @@ func NewUpdateProductCreated() *UpdateProductCreated {
 	return &UpdateProductCreated{}
 }
 
-/*
-UpdateProductCreated describes a response with status code 201, with default header values.
+/*UpdateProductCreated handles this case with default header values.
 
 No content is returned by this API endpoint
 */
 type UpdateProductCreated struct {
 }
 
-// IsSuccess returns true when this update product created response has a 2xx status code
-func (o *UpdateProductCreated) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update product created response has a 3xx status code
-func (o *UpdateProductCreated) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update product created response has a 4xx status code
-func (o *UpdateProductCreated) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update product created response has a 5xx status code
-func (o *UpdateProductCreated) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update product created response a status code equal to that given
-func (o *UpdateProductCreated) IsCode(code int) bool {
-	return code == 201
-}
-
-// Code gets the status code for the update product created response
-func (o *UpdateProductCreated) Code() int {
-	return 201
-}
-
 func (o *UpdateProductCreated) Error() string {
-	return fmt.Sprintf("[PUT /products][%d] updateProductCreated ", 201)
-}
-
-func (o *UpdateProductCreated) String() string {
 	return fmt.Sprintf("[PUT /products][%d] updateProductCreated ", 201)
 }
 
@@ -107,8 +74,7 @@ func NewUpdateProductNotFound() *UpdateProductNotFound {
 	return &UpdateProductNotFound{}
 }
 
-/*
-UpdateProductNotFound describes a response with status code 404, with default header values.
+/*UpdateProductNotFound handles this case with default header values.
 
 Generic error message returned as a string
 */
@@ -116,41 +82,7 @@ type UpdateProductNotFound struct {
 	Payload *models.GenericError
 }
 
-// IsSuccess returns true when this update product not found response has a 2xx status code
-func (o *UpdateProductNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update product not found response has a 3xx status code
-func (o *UpdateProductNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update product not found response has a 4xx status code
-func (o *UpdateProductNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update product not found response has a 5xx status code
-func (o *UpdateProductNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update product not found response a status code equal to that given
-func (o *UpdateProductNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the update product not found response
-func (o *UpdateProductNotFound) Code() int {
-	return 404
-}
-
 func (o *UpdateProductNotFound) Error() string {
-	return fmt.Sprintf("[PUT /products][%d] updateProductNotFound  %+v", 404, o.Payload)
-}
-
-func (o *UpdateProductNotFound) String() string {
 	return fmt.Sprintf("[PUT /products][%d] updateProductNotFound  %+v", 404, o.Payload)
 }
 
@@ -175,8 +107,7 @@ func NewUpdateProductUnprocessableEntity() *UpdateProductUnprocessableEntity {
 	return &UpdateProductUnprocessableEntity{}
 }
 
-/*
-UpdateProductUnprocessableEntity describes a response with status code 422, with default header values.
+/*UpdateProductUnprocessableEntity handles this case with default header values.
 
 Validation errors defined as an array of strings
 */
@@ -184,41 +115,7 @@ type UpdateProductUnprocessableEntity struct {
 	Payload *models.ValidationError
 }
 
-// IsSuccess returns true when this update product unprocessable entity response has a 2xx status code
-func (o *UpdateProductUnprocessableEntity) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update product unprocessable entity response has a 3xx status code
-func (o *UpdateProductUnprocessableEntity) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update product unprocessable entity response has a 4xx status code
-func (o *UpdateProductUnprocessableEntity) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update product unprocessable entity response has a 5xx status code
-func (o *UpdateProductUnprocessableEntity) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update product unprocessable entity response a status code equal to that given
-func (o *UpdateProductUnprocessableEntity) IsCode(code int) bool {
-	return code == 422
-}
-
-// Code gets the status code for the update product unprocessable entity response
-func (o *UpdateProductUnprocessableEntity) Code() int {
-	return 422
-}
-
 func (o *UpdateProductUnprocessableEntity) Error() string {
-	return fmt.Sprintf("[PUT /products][%d] updateProductUnprocessableEntity  %+v", 422, o.Payload)
-}
-
-func (o *UpdateProductUnprocessableEntity) String() string {
 	return fmt.Sprintf("[PUT /products][%d] updateProductUnprocessableEntity  %+v", 422, o.Payload)
 }
 
