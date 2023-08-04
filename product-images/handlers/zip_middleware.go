@@ -52,6 +52,6 @@ func (wr *WrappedReponseWriter) WriteHeader(statuscode int) {
 }
 
 func (wr *WrappedReponseWriter) Flush() {
-	wr.gw.Flush() //to ensure that all compressed data is written to the response before closing the gzip writer.
+	wr.gw.Flush()
 	wr.gw.Close()
 }
