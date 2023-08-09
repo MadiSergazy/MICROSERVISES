@@ -6,8 +6,7 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	hclog "github.com/hashicorp/go-hclog"
-
+	"github.com/hashicorp/go-hclog"
 	"github.com/nicholasjackson/building-microservices-youtube/product-api/data"
 )
 
